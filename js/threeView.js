@@ -1,6 +1,3 @@
-/**
- * Created by ghassaei on 9/16/16.
- */
 
 function initThreeView() {
 
@@ -19,31 +16,20 @@ function initThreeView() {
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.append(renderer.domElement);
 
-        // scene.background = new THREE.Color(0xffffff);
-        var directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.5);
-        directionalLight1.position.set(100, 0, 100);
+
+        var directionalLight1 = new THREE.DirectionalLight(0xffffff,  Math.random(20));
+        directionalLight1.position.set(10, 1, 10);
         scene.add(directionalLight1);
-        // var directionalLight4 = new THREE.DirectionalLight(0xffffff, 0.3);
-        // directionalLight4.position.set(0, 0, -100);
-        // scene.add(directionalLight4);
-        // var directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.4);
-        // directionalLight2.position.set(100, 0, -30);
-        // scene.add(directionalLight2);
-        // var directionalLight3 = new THREE.DirectionalLight(0xffffff, 0.8);
-        // directionalLight3.position.set(-100, 0, -30);
-        // scene.add(directionalLight3);
+
         var ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
         scene.add(ambientLight);
 
-        //scene.fog = new THREE.FogExp2(0xf4f4f4, 1.7);
-        //renderer.setClearColor(scene.fog.color);
-
         camera.up = new THREE.Vector3(0,0,1);
-        camera.zoom = 1;
+        camera.zoom = 1.5;
         camera.updateProjectionMatrix();
         camera.position.z = 10;
 
-        renderer.setClearColor(0x000000, 0);
+        renderer.setClearColor(0x222222, Math.random(20));
 
         render();
     }
@@ -55,9 +41,7 @@ function initThreeView() {
     }
 
     function startAnimation(callback){
-        console.log("starting animation");
         if (animationRunning){
-            console.warn("animation already running");
             return;
         }
         animationRunning = true;
